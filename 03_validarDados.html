@@ -11,11 +11,33 @@
     */
 
     //ENTRADA
-
+    let nome = prompt("Nome:");
+    let idade = Number(prompt("Idade:"));
+    let salario = Number(prompt("Salário:"));
+    let sexo = prompt("Gênero (feminino - F; ou masculino - M):").toUpperCase();
+    let estadoCivil = prompt("Estado Civil (solteiro(a) - S; casado(a) - C; viuvo(a) - V; divorciado(a) - D):").toUpperCase();
 
     //PROCESSAMENTO
-
-
+while(nome.length <= 3){
+    alert("Valor inválido!");
+    nome = prompt("Nome:");
+}
+while(idade<0 || idade>150){
+    alert("Valor inválido!");
+    idade = Number(prompt("Idade:"));
+}
+while(salario <= 0){
+    alert("Valor inválido!");
+    salario = Number(prompt("Salário:"));
+}
+while(sexo!="F" && sexo !="M"){
+    alert("Valor inválido!");
+    sexo = prompt("Gênero (feminino - F; ou masculino - M):").toUpperCase();
+}
+while(estadoCivil != 'S' && estadoCivil != 'C' && estadoCivil != 'V' && estadoCivil != 'D'){
+    alert("Valor inválido!");
+    let estadoCivil = prompt("Estado Civil (solteiro(a) - S; casado(a) - C; viuvo(a) - V; divorciado(a) - D):").toUpperCase();
+}
     //SAÍDA
 
 </script>
