@@ -6,11 +6,14 @@
     */
 
     //ENTRADA
-
+    let senha = Number(prompt("Informe a senha:"));
 
     //PROCESSAMENTO
-
+    while(senha >= 10000 || senha <= 999 || senha % 1 !== 0){
+    alert("Senha Incorreta");
+    senha = Number(prompt("Informe a senha:"));
+}
 
     //SAÍDA
-
+    alert("Senha Correta");
 </script>
