@@ -19,53 +19,47 @@
     d) O candidato vencedor.
     */
 
-    //ENTRADA
-    const votos = Number(prompt("As opções de voto são:<br> 1. Candidato Joãozinho <br>2. Candidato Mariazinha <br>3. Nulo <br>4. Branco <br>Entre com o seu voto:"));
-
     let joao = 0;
     let maria = 0;
     let nulo = 0;
     let branco = 0;
     let total = 0;
 
-    //PROCESSAMENTO
-    while(votos !== 0){
-        if(votos === 1){
-            joao++
-        }else if(votos === 2){
-            maria++
-        }else if(votos === 3){
-            nulo++
-        }else if(votos === 4){
-            branco++
-        }else{
-            alert("Dados inválidos!")
+    let voto = Number(prompt(
+        "As opções de voto são:\n1. Candidato Joãozinho\n2. Candidato Mariazinha\n3. Nulo\n4. Branco\nEntre com o seu voto:"
+    ));
+
+    while (voto !== 0) {
+        if (voto === 1) {
+            joao++; total++;
+        } else if (voto === 2) {
+            maria++; total++;
+        } else if (voto === 3) {
+            nulo++; total++;
+        } else if (voto === 4) {
+            branco++; total++;
+        } else {
+            alert("Dados inválidos!");
         }
+
+        voto = Number(prompt("Insira o número 0 para enviar:"));
     }
 
-    let percNulo = (nulo / total) * 100;
-    let percBranco = (branco / total) * 100;
+    const percNulo = total > 0 ? (nulo / total) * 100 : 0;
+    const percBranco = total > 0 ? (branco / total) * 100 : 0;
 
-    let vencedor = "";
-    if (joao > maria) {
-        vencedor = "Joãozinho";
-    } else if (maria > joao) {
-        vencedor = "Mariazinha ";
-    } else {
-        vencedor = "Empate";
-    }
+    let vencedor = "Empate";
+    if (joao > maria) vencedor = "Joãozinho";
+    else if (maria > joao) vencedor = "Mariazinha";
 
-
-    //SAÍDA
-     let mensagem =
-        `RESULTADO FINAL\n\n 
-        Joãozinho:  ${joao} votos\n 
-        Mariazinha: ${maria}  votos\n
-        Nulos: ${nulo} votos (${ percNulo.toFixed(2)} "%)\n
-        Brancos: ${branco} votos (${branco.toFixed(2)} "%)\n
-        Vencedor: ${vencedor}`;
+    const mensagem =
+        `RESULTADO FINAL\n\n` +
+        `Joãozinho: ${joao} votos\n` +
+        `Mariazinha: ${maria} votos\n` +
+        `Nulos: ${nulo} votos (${percNulo.toFixed(2)}%)\n` +
+        `Brancos: ${branco} votos (${percBranco.toFixed(2)}%)\n` +
+        `Vencedor: ${vencedor}`;
 
     alert(mensagem);
-    //SAÍDA
-
-</script>
+    </script>
+    
